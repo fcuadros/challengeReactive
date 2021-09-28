@@ -29,12 +29,12 @@ public class StudentController {
 	}
 
 	@GetMapping("/{id}")
-	public Single<ResponseEntity<Student>> getById(@PathVariable Long id) {
+	public Single<ResponseEntity<Student>> findStudentById(@PathVariable Long id) {
 		return studentService.findStudentById(id).map(student -> ResponseEntity.ok().body(student));
 	}
 
 	@GetMapping
-	public Observable<ResponseEntity<Student>> getAll() {
+	public Observable<ResponseEntity<Student>> findAllStudentsByStatus() {
 		return studentService.findAllStudentsByStatus().map(student -> ResponseEntity.ok().body(student));
 	}
 
